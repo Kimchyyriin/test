@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Our Story 📖</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <main class="shell">
+        <section class="card glass">
+            <div class="topRow">
+                <h2 class="title small">หน้าที่ 1: เรื่องของเรา</h2>
+                <span class="badge" id="badgeName"></span>
+            </div>
+
+            <div class="typebox">
+                <p id="typed" class="typed"></p>
+                <p class="hint">กด “ต่อไป” เมื่ออ่านจบ 🫶</p>
+            </div>
+
+            <div class="actions">
+                <a class="btn" href="index.html">ย้อนกลับ</a>
+                <button id="nextBtn" class="btn primary" disabled>ต่อไป ➜</button>
+            </div>
+
+            <div class="meta">
+                <span id="progressText">Progress: 0%</span>
+                <div class="bar">
+                    <div id="barFill" class="barFill"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        LoveApp.initStoryPage({
+            text: [
+                "บางคนเข้ามาในชีวิตแบบธรรมดา… แต่ทำให้ทุกอย่างไม่ธรรมดาอีกต่อไป",
+                "ตั้งแต่มีเธอ โลกมันใจดีกับเราขึ้นแบบแปลกๆ",
+                "เราอาจไม่ได้เก่งเรื่องหวาน แต่เราเก่งเรื่อง “รักเธอ” นะ",
+                "ถ้าวันไหนเหนื่อย ก็ขอให้รู้ว่า… เราอยู่ข้างเธอเสมอ"
+            ].join("\n\n"),
+            done: () => { document.getElementById("nextBtn").disabled = false; }
+        });
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            LoveApp.setStep(1);
+            window.location.href = "gallery.html";
+        });
+    </script>
+</body>
+
+</html>

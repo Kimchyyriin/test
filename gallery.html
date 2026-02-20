@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Memories 🖼️</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <main class="shell">
+        <section class="card glass">
+            <div class="topRow">
+                <h2 class="title small">หน้าที่ 2: Memories</h2>
+                <span class="badge" id="badgeName"></span>
+            </div>
+
+            <p class="subtitle">กดการ์ดให้ครบ 3 ใบเพื่อปลดล็อก “คำสุดท้าย”</p>
+
+            <div class="grid" id="grid">
+                <!-- cards injected by JS -->
+            </div>
+
+            <div class="actions">
+                <a class="btn" href="story.html">ย้อนกลับ</a>
+                <button id="unlockBtn" class="btn primary" disabled>ปลดล็อก 🔓</button>
+            </div>
+
+            <div class="meta">
+                <span id="progressText">Progress: 0%</span>
+                <div class="bar">
+                    <div id="barFill" class="barFill"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        LoveApp.initGalleryPage({
+            cards: [
+                { title: "วันที่เราหัวเราะ", body: "เสียงหัวเราะของเธอ ทำให้วันที่หนักๆ เบาลงได้จริงๆ" },
+                { title: "วันที่เราผ่านอะไรด้วยกัน", body: "เราไม่สัญญาว่าทุกวันจะดี แต่สัญญาว่าจะไปด้วยกัน" },
+                { title: "วันที่เราเงียบ", body: "ถึงไม่พูดเยอะ แต่ใจเราพูดว่า ‘รัก’ ตลอด" },
+                { title: "วันที่เธอเหนื่อย", body: "พักได้เลยนะ เราจะเป็นที่ปลอดภัยให้เธอ" },
+                { title: "วันที่เธอเก่งมาก", body: "เราภูมิใจในตัวเธอมากกว่าที่เธอคิดอีก" },
+                { title: "วันที่ธรรมดา", body: "ความธรรมดาที่มีเธอ อยู่ด้วย มันดีที่สุดแล้ว" }
+            ],
+            onUnlocked: () => { document.getElementById("unlockBtn").disabled = false; }
+        });
+
+        document.getElementById("unlockBtn").addEventListener("click", () => {
+            LoveApp.setStep(2);
+            window.location.href = "finale.html";
+        });
+    </script>
+</body>
+
+</html>
