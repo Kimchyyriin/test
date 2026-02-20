@@ -1,40 +1,117 @@
 <!doctype html>
 <html lang="th">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>For You ✨</title>
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Opal ✨</title>
+
+  <!-- Fonts (โหลดจาก Google Fonts ได้บน GitHub Pages) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <div class="bg"></div>
-    <main class="shell">
-        <section class="card glass">
-            <h1 class="title">มีอะไรจะบอกเธอ…</h1>
-            <p class="subtitle">เปิดทีละหน้า แล้วค่อยๆ อ่านนะ</p>
+  <!-- background layers -->
+  <div class="scene" aria-hidden="true">
+    <canvas id="stars"></canvas>
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+    <div class="grain"></div>
+  </div>
 
-            <div class="form">
-                <label class="label">ชื่อแฟน (optional)</label>
-                <input id="nameInput" class="input" placeholder="เช่น มายด์ / บีม / …" maxlength="30" />
-                <button id="startBtn" class="btn primary">เริ่มภารกิจ 💘</button>
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <span class="logo">✦</span>
+        <span class="brandText">OPAL.exe</span>
+      </div>
+      <div class="chip" id="chipTime"></div>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div class="glowBorder"></div>
+
+        <div class="headline">
+          <h1>
+            ถึง <span class="accent">โอปอ</span>
+            <span class="sub">(opal)</span>
+          </h1>
+          <p class="lead">
+            เปิดทีละหน้า แล้วให้เราเล่า “ความรู้สึกจริงๆ” แบบค่อยๆ ละลายใจนะ 💗
+          </p>
+        </div>
+
+        <div class="controls">
+          <div class="field">
+            <label>ชื่อแฟน</label>
+            <input id="nameInput" maxlength="30" placeholder="โอปอ / opal" />
+          </div>
+
+          <div class="buttons">
+            <button class="btn primary" id="startBtn">
+              <span class="btnIcon">❤</span>
+              <span>เริ่มภารกิจ</span>
+              <span class="btnShine" aria-hidden="true"></span>
+            </button>
+
+            <button class="btn ghost" id="previewBtn">
+              ดูตัวอย่างหน้าอื่น ๆ →
+            </button>
+          </div>
+
+          <div class="meta">
+            <div class="metaRow">
+              <span id="progressText">Progress: 0%</span>
+              <span class="hint">*เว็บนี้จำชื่อด้วยเครื่องของคุณ</span>
             </div>
+            <div class="bar"><div id="barFill" class="barFill"></div></div>
+          </div>
+        </div>
 
-            <div class="meta">
-                <span id="progressText">Progress: 0%</span>
-                <div class="bar">
-                    <div id="barFill" class="barFill"></div>
-                </div>
-            </div>
-        </section>
+        <div class="mini">
+          <div class="pill">Glass UI</div>
+          <div class="pill">Aurora</div>
+          <div class="pill">Stars</div>
+          <div class="pill">Parallax</div>
+        </div>
+      </div>
 
-        <footer class="footer">
-            <a class="link" href="story.html">ไปหน้าถัดไป</a>
-        </footer>
-    </main>
+      <aside class="side">
+        <div class="sideCard">
+          <h3>สิ่งที่ซ่อนอยู่</h3>
+          <ul>
+            <li>พิมพ์ชื่อแล้วไปทุกหน้า</li>
+            <li>มีข้อความพิมพ์ทีละตัว</li>
+            <li>ปลดล็อกความทรงจำ</li>
+            <li>หน้าจบมี confetti 💖</li>
+          </ul>
+          <div class="ctaLine">พร้อมยัง โอปอ 🙂</div>
+        </div>
 
-    <script src="js/app.js"></script>
+        <div class="sideCard soft">
+          <h3>Tip</h3>
+          <p>เปิดเต็มจอแล้วจะสวยมาก (F11)</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="foot">
+      <span class="footDot"></span>
+      <span>Made with love for Opal</span>
+    </footer>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    // index hooks
+    document.getElementById("previewBtn").addEventListener("click", () => {
+      window.location.href = "story.html";
+    });
+  </script>
 </body>
-
 </html>
